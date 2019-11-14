@@ -1,0 +1,151 @@
+@import "colors.less";
+
+atom-text-editor {
+  background-color: @darkblue;
+  color: white;
+
+
+  // ************************************************************
+  // editor
+
+  .wrap-guide {
+    background-color: @gutter-white;
+  }
+
+  .indent-guide {
+    color: @gutter-gray;
+  }
+
+  .invisible-character  {
+    color: @gutter-gray;
+  }
+
+  .gutter {
+    .cursor-line {
+      background-color: gray;
+    }
+  }
+
+  .fold-marker {
+    color: @gutter-white;
+  }
+
+  .cursor {
+    color: yellow;
+    background-color: #FFFF0044;  // transparent yellow
+  }
+
+  .selection {
+    background-color: @gutter-gray;
+  }
+
+  .scroll-view {
+    // create line between gutter and text
+    border-left: 1px solid @gutter-gray;
+    padding-left: 0.2em;
+    margin-left: 0.2em;
+  }
+
+
+  // ************************************************************
+  // source
+
+  .syntax--keyword {
+    color: @lime;
+  }
+
+  .syntax--storage {
+    color: @kiwi;
+  }
+
+  .syntax--entity {
+    color: @mango;
+  }
+
+  .syntax--constant {
+    // constants can appear within strings!
+    color: @blueberry;
+  }
+
+  .syntax--string {
+    color: @raspberry;
+  }
+
+  .syntax--punctuation {
+    // punctuation can appear within entities, comments and strings
+    // in CSS and bash
+    // apparently unused in Python
+    // not using it for now
+  }
+
+  .syntax--comment {
+    color: @fig;
+  }
+
+  .syntax--invalid {
+    // haven't seen an instance, this seems like a decent default
+    background-color: red;
+  }
+
+
+  // ************************************************************
+  // markdown
+  .markup {
+
+    &.bold,
+    &.heading,
+    &.strong.emphasis {
+      font-weight: bold;
+    }
+
+    &.italic,
+    &.emphasis:not(.strong) {
+      font-style: italic;
+    }
+
+    &.underline {
+      text-decoration: underline;
+    }
+
+    &.strike {
+      text-decoration: line-through;
+    }
+
+    &.heading,
+    &.substitution,
+    &.changed {
+      color: @raspberry;
+    }
+
+    &.inserted,
+    &.addition,
+    &.quote {
+      color: @mango;
+    }
+
+    &.deletion,
+    &.hr {
+      color: @lime;
+    }
+
+    &.link {
+      color: @kiwi;
+    }
+
+    &.list {
+      & > .punctuation {
+        color: @blueberry;
+      }
+    }
+
+    &.raw,
+    &.code {
+      color: @fig;
+    }
+
+   .punctuation {
+     opacity: 0.5;
+   }
+  }
+
+}

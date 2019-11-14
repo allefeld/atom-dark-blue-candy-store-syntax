@@ -1,0 +1,15 @@
+{
+  "name": "dark-blue-candy-store-syntax",
+  "theme": "syntax",
+  "version": "0.0.0",
+  "description": "Dark-blue Candy Store",
+  "keywords": [
+    "syntax",
+    "theme"
+  ],
+  "repository": "https://github.com/allefeld/dark-blue-candy-store-syntax/",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  }
+}
