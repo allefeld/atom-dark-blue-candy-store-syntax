@@ -35,6 +35,10 @@ atom-text-editor {
     background-color: #FFFF0044;  // transparent yellow
   }
 
+  .bracket-matcher .region {
+    border-bottom: 1px solid yellow;
+  }
+
   .selection {
     background-color: @gutter-gray;
   }
@@ -88,64 +92,67 @@ atom-text-editor {
   }
 
 
+
   // ************************************************************
   // markdown
-  .markup {
+  .syntax--markup {
 
-    &.bold,
-    &.heading,
-    &.strong.emphasis {
+    &.syntax--bold,
+    &.syntax--heading,
+    &.syntax--strong.syntax--emphasis {
       font-weight: bold;
     }
 
-    &.italic,
-    &.emphasis:not(.strong) {
+    &.syntax--italic,
+    &.syntax--emphasis:not(.syntax--strong) {
       font-style: italic;
     }
 
-    &.underline {
+    &.syntax--underline {
       text-decoration: underline;
     }
 
-    &.strike {
+    &.syntax--strike {
       text-decoration: line-through;
     }
 
-    &.heading,
-    &.substitution,
-    &.changed {
+    &.syntax--heading,
+    &.syntax--substitution,
+    &.syntax--changed {
       color: @raspberry;
     }
 
-    &.inserted,
-    &.addition,
-    &.quote {
+    &.syntax--inserted,
+    &.syntax--addition,
+    &.syntax--quote {
       color: @mango;
     }
 
-    &.deletion,
-    &.hr {
+    &.syntax--deletion,
+    &.syntax--hr {
       color: @lime;
     }
 
-    &.link {
+    &.syntax--link {
       color: @kiwi;
     }
 
-    &.list {
-      & > .punctuation {
+    &.syntax--list {
+      & > .syntax--punctuation {
         color: @blueberry;
       }
     }
 
-    &.raw,
-    &.code {
+    &.syntax--raw,
+    &.syntax--code {
       color: @fig;
     }
 
-   .punctuation {
+   .syntax--punctuation {
      opacity: 0.5;
    }
+
   }
 
 }
+
