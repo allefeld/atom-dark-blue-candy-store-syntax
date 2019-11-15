@@ -9,25 +9,28 @@ atom-text-editor {
   // editor
 
   .wrap-guide {
-    background-color: @gutter-white;
+    background-color: @gutter-light;
   }
 
   .indent-guide {
-    color: @gutter-gray;
+    color: @gutter-dark;
   }
 
   .invisible-character  {
-    color: @gutter-gray;
+    color: @gutter-dark;
   }
 
-  .gutter {
-    .cursor-line {
-      background-color: gray;
-    }
+  .cursor-line {
+    background-color: @gutter-dark;
+  }
+
+  .line-number {
+    opacity: 1;
+    color: @gutter-light;
   }
 
   .fold-marker {
-    color: @gutter-white;
+    color: @gutter-light;
   }
 
   .cursor {
@@ -35,19 +38,19 @@ atom-text-editor {
     background-color: #FFFF0044;  // transparent yellow
   }
 
-  .bracket-matcher .region {
-    border-bottom: 1px solid yellow;
-  }
-
   .selection {
-    background-color: @gutter-gray;
+    background-color: @gutter-dark;
   }
 
   .scroll-view {
     // create line between gutter and text
-    border-left: 1px solid @gutter-gray;
+    border-left: 1px solid @gutter-light;
     padding-left: 0.2em;
     margin-left: 0.2em;
+  }
+
+  .bracket-matcher .region {
+    border-bottom: 1px solid yellow;
   }
 
 
