@@ -1,0 +1,34 @@
+@import "colors";
+
+// This file must be present in every syntax theme. It contains definitions of
+// colors intended for specific editor elements. The idea is that these
+// definitions are used in the theme itself, but also made available to
+// packages that introduce new elements into the editor, so that they can try
+// to blend the appearance of these elements into the theme.
+
+// General colors
+@syntax-text-color: @white;
+@syntax-cursor-color: @yellow;
+@syntax-selection-color: @darkblue-paler;
+@syntax-background-color: @darkblue;
+
+// Guide colors
+@syntax-wrap-guide-color: @darkblue-palest;
+@syntax-indent-guide-color: @darkblue-paler;
+@syntax-invisible-character-color: @darkblue-paler;
+
+// For find and replace markers
+@syntax-result-marker-color: @syntax-text-color;
+@syntax-result-marker-color-selected: @syntax-cursor-color;
+
+// Gutter colors
+@syntax-gutter-text-color: @darkblue-palest;
+@syntax-gutter-text-color-selected: @syntax-gutter-text-color;
+@syntax-gutter-background-color: @syntax-background-color;
+@syntax-gutter-background-color-selected: @darkblue-pale;
+
+// For git diff info. i.e. in the gutter
+@syntax-color-renamed: @blue;
+@syntax-color-added: @green;
+@syntax-color-modified: @yellow;
+@syntax-color-removed: @red;

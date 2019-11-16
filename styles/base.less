@@ -1,161 +1,165 @@
-@import "colors.less";
+@import "syntax-variables";
 
 atom-text-editor {
-  background-color: @darkblue;
-  color: white;
 
+  background-color: @syntax-background-color;
+  color: @syntax-text-color;
 
-  // ************************************************************
-  // editor
+  // give change markers some breathing room
+  border-left: 1px solid @syntax-background-color;
 
   .wrap-guide {
-    background-color: @gutter-light;
+    background-color: @syntax-wrap-guide-color;
   }
 
   .indent-guide {
-    color: @gutter-dark;
+    color: @syntax-indent-guide-color;
   }
 
   .invisible-character  {
-    color: @gutter-dark;
+    color: @syntax-invisible-character-color;
   }
 
-  .cursor-line {
-    background-color: @gutter-dark;
+  .gutter {
+    color: @syntax-gutter-text-color;
+
+    // create line between gutter and text
+    border-right: 1px solid @syntax-wrap-guide-color;
+    margin-right: 1px;
+
+    .line-number {
+      opacity: 1;
+
+      &.cursor-line {
+        background-color: @syntax-gutter-background-color-selected;
+      }
+    }
   }
 
-  .line-number {
-    opacity: 1;
-    color: @gutter-light;
+  .gutter .line-number.folded,
+  .gutter .line-number:after,
+  .fold-marker:after {
+    color: @syntax-text-color;
   }
 
-  .fold-marker {
-    color: @gutter-light;
+  .invisible {
+    color: @syntax-text-color;
   }
 
   .cursor {
-    color: yellow;
-    background-color: #FFFF0044;  // transparent yellow
+    color: @syntax-cursor-color;
+    background-color: fade(@syntax-cursor-color, 25%);
   }
 
-  .selection {
-    background-color: @gutter-dark;
+  .selection .region {
+    background-color: @syntax-selection-color;
   }
 
-  .scroll-view {
-    // create line between gutter and text
-    border-left: 1px solid @gutter-light;
-    padding-left: 0.2em;
-    margin-left: 0.2em;
-  }
-
+  // for bracket-matcher core package
   .bracket-matcher .region {
-    border-bottom: 1px solid yellow;
+    border-bottom: 1px solid @syntax-cursor-color;
+  }
+}
+
+
+// Syntax styles
+
+.syntax--keyword {
+  color: @lime;
+}
+
+.syntax--storage {
+  color: @kiwi;
+}
+
+.syntax--entity {
+  color: @mango;
+}
+
+.syntax--constant {
+  // constants can appear within strings!
+  color: @blueberry;
+}
+
+.syntax--string {
+  color: @raspberry;
+}
+
+.syntax--punctuation {
+  // punctuation can appear within entities, comments and strings
+  // in CSS and bash
+  // apparently unused in Python
+  // not using it for now
+}
+
+.syntax--comment {
+  color: @fig;
+}
+
+.syntax--invalid {
+  // haven't seen an instance, this seems like a decent default
+  background-color: red;
+}
+
+
+
+// ************************************************************
+// markdown
+.syntax--markup {
+
+  &.syntax--bold,
+  &.syntax--heading,
+  &.syntax--strong.syntax--emphasis {
+    font-weight: bold;
   }
 
-
-  // ************************************************************
-  // source
-
-  .syntax--keyword {
-    color: @lime;
+  &.syntax--italic,
+  &.syntax--emphasis:not(.syntax--strong) {
+    font-style: italic;
   }
 
-  .syntax--storage {
-    color: @kiwi;
+  &.syntax--underline {
+    text-decoration: underline;
   }
 
-  .syntax--entity {
-    color: @mango;
+  &.syntax--strike {
+    text-decoration: line-through;
   }
 
-  .syntax--constant {
-    // constants can appear within strings!
-    color: @blueberry;
-  }
-
-  .syntax--string {
+  &.syntax--heading,
+  &.syntax--substitution,
+  &.syntax--changed {
     color: @raspberry;
   }
 
-  .syntax--punctuation {
-    // punctuation can appear within entities, comments and strings
-    // in CSS and bash
-    // apparently unused in Python
-    // not using it for now
+  &.syntax--inserted,
+  &.syntax--addition,
+  &.syntax--quote {
+    color: @mango;
   }
 
-  .syntax--comment {
+  &.syntax--deletion,
+  &.syntax--hr {
+    color: @lime;
+  }
+
+  &.syntax--link {
+    color: @kiwi;
+  }
+
+  &.syntax--list {
+    & > .syntax--punctuation {
+      color: @blueberry;
+    }
+  }
+
+  &.syntax--raw,
+  &.syntax--code {
     color: @fig;
   }
 
-  .syntax--invalid {
-    // haven't seen an instance, this seems like a decent default
-    background-color: red;
-  }
-
-
-
-  // ************************************************************
-  // markdown
-  .syntax--markup {
-
-    &.syntax--bold,
-    &.syntax--heading,
-    &.syntax--strong.syntax--emphasis {
-      font-weight: bold;
-    }
-
-    &.syntax--italic,
-    &.syntax--emphasis:not(.syntax--strong) {
-      font-style: italic;
-    }
-
-    &.syntax--underline {
-      text-decoration: underline;
-    }
-
-    &.syntax--strike {
-      text-decoration: line-through;
-    }
-
-    &.syntax--heading,
-    &.syntax--substitution,
-    &.syntax--changed {
-      color: @raspberry;
-    }
-
-    &.syntax--inserted,
-    &.syntax--addition,
-    &.syntax--quote {
-      color: @mango;
-    }
-
-    &.syntax--deletion,
-    &.syntax--hr {
-      color: @lime;
-    }
-
-    &.syntax--link {
-      color: @kiwi;
-    }
-
-    &.syntax--list {
-      & > .syntax--punctuation {
-        color: @blueberry;
-      }
-    }
-
-    &.syntax--raw,
-    &.syntax--code {
-      color: @fig;
-    }
-
-   .syntax--punctuation {
-     opacity: 0.5;
-   }
-
-  }
+ .syntax--punctuation {
+   opacity: 0.5;
+ }
 
 }
-
