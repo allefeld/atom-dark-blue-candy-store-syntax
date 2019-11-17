@@ -7,9 +7,8 @@
 // ----------------------------------------
 
 .syntax--markup {
-
+  
   &.syntax--bold,
-  &.syntax--heading,
   &.syntax--strong.syntax--emphasis {
     font-weight: bold;
   }
@@ -27,43 +26,63 @@
     text-decoration: line-through;
   }
 
+  &.syntax--strong,
+  &.syntax--emphasis {
+    color: @kiwi;
+    .syntax--punctuation {
+      opacity: 0.5;
+    }
+  }
+
   &.syntax--heading {
     color: @mango;
+    font-weight: bold;
+    .syntax--punctuation {
+      opacity: 0.5;
+    }
   }
   
-  &.syntax--substitution,
-  &.syntax--changed {
-    color: red;
-  }
-
-  &.syntax--inserted,
-  &.syntax--addition,
   &.syntax--quote {
-    color: green;
-  }
-
-  &.syntax--deletion,
-  &.syntax--hr {
-    color: blue;
+    & > .syntax--punctuation {
+      color: @raspberry;
+      font-weight: bold;
+    }
   }
 
   &.syntax--link {
-    color: magenta;
   }
 
   &.syntax--list {
-    & > .syntax--punctuation {
-      color: yellow;
+    .syntax--punctuation {
+      color: @raspberry;
+      font-weight: bold;
     }
   }
 
   &.syntax--raw,
   &.syntax--code {
-    color: cyan;
+    color: @blueberry;
   }
 
- .syntax--punctuation {
-   opacity: 0.5;
+  &.syntax--math {
+    color: @lime;
+    .syntax--punctuation {
+      opacity: 0.5;
+    }
+}
+
+ &.syntax--substitution,
+ &.syntax--changed {
+   color: @yellow;
+ }
+
+ &.syntax--inserted,
+ &.syntax--addition {
+   color: @green;
+ }
+
+ &.syntax--deletion {
+   color: @red;
  }
 }
 
@@ -86,15 +105,26 @@
       }
     }
 
-    &.syntax--hr {}
+    &.syntax--hr {
+      color: @mango;
+      font-weight: bold;
+    }
     &.syntax--quote {}
 
     &.syntax--link {
+      color: unset;
+      .syntax--punctuation {
+        color: @raspberry;
+        opacity: 1;
+      }
       &.syntax--text {}
       &.syntax--destination {
+        color: @raspberry;
         .syntax--uri {}
       }
-      &.syntax--label {}
+      &.syntax--label {
+        color: @raspberry;
+      }
       &.syntax--title {}
       &.syntax--auto {
         &.syntax--email {}
@@ -127,6 +157,7 @@
     }
 
     &.syntax--constant {
+      font-weight: bold;
       &.syntax--entity {}
       &.syntax--escape {}
       &.syntax--line-break {}
@@ -154,6 +185,7 @@
     }
 
     &.syntax--code {
+      color: @blueberry;
       &:not(.syntax--fenced) {}
 
       &.syntax--fenced {
@@ -178,7 +210,9 @@
     &.syntax--strong {}
 
     &.syntax--table {
+      color: @syntax-text-color;
       > .syntax--punctuation {
+        color: @raspberry;
         &.syntax--alignment {}
       }
     }
