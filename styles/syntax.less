@@ -1,0 +1,42 @@
+// based on chkbk's proposed "Naming conventions for syntax scopes"
+// https://github.com/atom/flight-manual.atom.io/pull/564#issue-319936377
+
+
+// Syntax styles
+
+.syntax--keyword {
+  color: @lime;
+}
+
+.syntax--storage {
+  color: @kiwi;
+}
+
+.syntax--entity {
+  color: @mango;
+}
+
+.syntax--constant {
+  // constants can appear within strings!
+  color: @blueberry;
+}
+
+.syntax--string {
+  color: @raspberry;
+}
+
+.syntax--punctuation {
+  // punctuation can appear within entities, comments and strings
+  // in CSS and bash
+  // apparently unused in Python
+  // not using it for now
+}
+
+.syntax--comment {
+  color: @fig;
+}
+
+.syntax--invalid {
+  // haven't seen an instance, this seems like a decent default
+  background-color: red;
+}
