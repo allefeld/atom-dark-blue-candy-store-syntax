@@ -2,6 +2,7 @@
   "name": "dark-blue-candy-store-syntax",
   "theme": "syntax",
   "version": "0.0.0",
+  "owner": "allefeld",
   "description": "Dark-blue Candy Store",
   "keywords": [
     "syntax",
